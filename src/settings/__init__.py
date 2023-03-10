@@ -23,7 +23,10 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_extensions",
     # apps
-    # "src.apps.appname",
+    "src.apps.users",
+    "src.apps.boards",
+    "src.apps.projects",
+    "src.apps.tasks",
 ]
 
 MIDDLEWARE = [
@@ -67,6 +70,8 @@ DATABASES = {
         "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
+
+AUTH_USER_MODEL = "users.User"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
