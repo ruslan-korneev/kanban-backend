@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # third-party
+    "post_office",
     "rest_framework",
     "django_extensions",
     # apps
@@ -119,6 +120,15 @@ CACHES = {
 }
 CACHE_TTL = 60 * 15  # Cache time to live is 15 minutes
 
+
+# Email
+EMAIL_BACKEND = "post_office.EmailBackend"
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_USE_TLS = True
+EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_SUBJECT_PREFIX = "[Shaggy-Kanban] "
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
